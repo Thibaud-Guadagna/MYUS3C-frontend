@@ -1,0 +1,67 @@
+<form [formGroup]="signUpForm">
+    <div class="flex justify-around my-8">
+        <input 
+        type="text"
+        id="firstname"
+        name="firstname"
+        formControlName="firstName"
+        placeholder="Prénom..."
+        autocomplete="firstname"
+        class=" w-28 bg-transparent border-b border-gray-400 text-gray-300 placeholder-gray-400  focus:outline-none focus:border-red-600 transition duration-200 ml-3"/>
+        <input 
+        type="text"
+        id="lastname"
+        name="lastname"
+        formControlName="lastName"
+        placeholder="Nom..."
+        autocomplete="lastname"
+        class="w-28 bg-transparent border-b border-gray-400 text-gray-300 placeholder-gray-400  focus:outline-none focus:border-red-600 transition duration-200 mr-3"/>
+    </div>
+    <div class="flex justify-center my-8">
+    <input
+    type="text"
+        id="licenseId"
+        name="licenseId"
+        formControlName="licenseId"
+        placeholder="Numéro de licence"
+        autocomplete="firstname"
+        class=" w-80 bg-transparent border-b border-gray-400 text-gray-300 placeholder-gray-400  focus:outline-none focus:border-red-600 transition duration-200"
+     />
+    </div>
+    <div class="flex justify-center my-8">
+    <mat-select formControlName="categoryIndex"
+    class=" !w-80 bg-transparent border-b border-gray-400 text-white placeholder-white  focus:outline-none"
+    placeholder="Catégorie entrainée...">
+          <mat-option *ngFor="let category of categoryName; let i = index" [value]="i"
+          >
+            {{ category.name }}
+          </mat-option> 
+    </mat-select>
+    </div>
+    <div class="flex justify-center my-8">
+    <input
+    type="text"
+        id="email"
+        name="email"
+        formControlName="email"
+        placeholder="Email..."
+        autocomplete="email"
+        class=" w-80 bg-transparent border-b border-gray-400 text-gray-300 placeholder-gray-400 transition duration-200"
+     />
+    </div>
+    <div class="flex justify-center my-8">
+    <input
+    type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+        placeholder="Mot de passe..."
+        autocomplete="password"
+        class=" w-80 bg-transparent border-b border-gray-400 text-gray-300 placeholder-gray-400  focus:outline-none focus:border-red-600 transition duration-200"
+     />
+    </div>
+    <div class="flex justify-center">
+        <app-black-button  name="Demander un accès" class=""></app-black-button>
+    </div>
+    
+</form>

@@ -16,5 +16,8 @@ export class DoublebuttonComponent {
   handleRedClick() {
     this.router.navigate(['/login'])
   }
+  handleBlackClick() {
+		this.router.navigate(["/signup"]);
+	}
 }
 
