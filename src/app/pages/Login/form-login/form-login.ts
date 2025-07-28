@@ -28,10 +28,9 @@ export class FormLogin implements OnInit { // cette ligne indique la class FormL
   ) {}
   
   ngOnInit(): void { //Méthode spéciale d'Angular automatiquement appelée une seule au moment de l'intialisation du composant et définie parce que ma classe implémente OnInit
-    this.loginForm = this.fb.group({//création du formulaire réactif que l'on affecte à la variable fb qui signie 'FormBuilder' Group sert à créer un ensemble de règles qui s'appliquent aux champs du formulaire
+    this.loginForm = this.fb.group({
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required]]
-      //ici on dit : je veux deux champs obligatoires : email et password et email doit avoir le format d'adresse mail c'est natif à angular via le "validator" importé il vérifie qu'il y a un @ et un domaine dans le champs du formulaire
     })
   }
   login(): void {

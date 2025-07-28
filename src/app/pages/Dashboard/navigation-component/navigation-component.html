@@ -1,0 +1,30 @@
+<nav class="mt-4 relative p-4">  
+    <div
+      class="h-26 absolute inset-0 z-0 pointer-events-none opacity-10 bg-[repeating-linear-gradient(110deg,white_0_30px,transparent_20px_60px)]">
+    </div>
+    <ul class="grid grid-cols-2 gap-10  mx-8 relative z-10 h-[225px]">
+        <li class="h-16 flex items-center justify-center border-2 border-[#e5001b] text-center hover:bg-[#e5001b] hover:text-black text-[#e5001b]">
+            <button>MES ÉQUIPES</button>
+        </li>
+        <li class="h-16 flex items-center justify-center border-2 border-[#e5001b] text-center hover:bg-[#e5001b] hover:text-black text-[#e5001b]">
+            <button>MA CATÉGORIE</button>
+        </li>
+        <li class="h-16 flex items-center justify-center border-2 border-[#e5001b] text-center hover:bg-[#e5001b] hover:text-black text-[#e5001b]">
+            <button>MES ÉVÉNEMENTS</button>
+        </li>
+        <li class="h-16 flex items-center justify-center border-2 border-[#e5001b] text-center hover:bg-[#e5001b] hover:text-black text-[#e5001b]">
+            <button>MES JOUEURS</button>
+        </li>
+        <li class="h-16 flex items-center justify-center border-2 border-[#e5001b] bg-[#e5001b] text-black hover:bg-none hover:text-black">
+            <button class="flex items-center gap-2">
+                <img src="/logout.svg" class="w-5 h-5" />
+                <span>DÉCONNEXION</span>
+            </button>
+        </li>
+        
+            <li class="relative h-16 flex items-center justify-center border-2 border-[#e5001b] text-center hover:bg-[#e5001b] hover:text-black text-[#e5001b]">
+                <button (click)="handleClick()">DEMANDES EN ATTENTE : <span class="bg-[#e5001b] text-black rounded-full text-center px-2">{{waitingCount}}</span></button>
+            </li>
+        
+    </ul>
+</nav>

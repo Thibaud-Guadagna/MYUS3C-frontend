@@ -5,6 +5,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { BlackButtonComponent } from '../../../components/black-button/black-button';
+import { AuthService } from '../../../services/auth-service';
+import { Router } from '@angular/router';
 
 interface Category {
   name: string
@@ -22,18 +24,19 @@ export class FormSignUpComponent implements OnInit{
 
   constructor(
     private fb:FormBuilder,
+    private authService: AuthService,
+    private router: Router
    
   ) {}
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      firstName:['', [Validators.required]],
-      lastName:['', [Validators.required]],
-      licenseId:['', [Validators.required]],
-      categoryTrained:[Selection, [Validators.required]],
+      firstname:['', [Validators.required]],
+      lastname:['', [Validators.required]],
+      license_number:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required]],
-      categoryIndex:[null]
+      trained_category_id:[null, Validators.required]
     })
   }
  categoryName: Category[] = [
@@ -52,4 +55,19 @@ export class FormSignUpComponent implements OnInit{
   { name: 'U18' },
   { name: 'Senior' }
  ];
-}
+ onSubmit(): void {
+  if (this.signUpForm.invalid) return;
+  const formValues = this.signUpForm.value
+  console.log(this.signUpForm.value)
+    this.authService.askAccess(formValues).subscribe({
+      next: () => {
+        console.log('Demande envoyée')
+        this.router.navigate(['/'])
+      },
+      error: (err) => {
+        console.error(" ❌ Echec lors de la demande d'accès", err)
+      }
+    })
+
+  }
+ }
